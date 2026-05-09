@@ -1,0 +1,18 @@
+.gocache
+.golangci-cache
+bin/
+api.exe
+*.go.[0-9]*
+coverage
+coverage.out
+coverage-*
+
+# Local environment overrides — never commit secrets.
+.env
+.env.local
+.env.*.local
+
+# IDE directories.
+.idea/
+.vscode/
+
