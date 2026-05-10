@@ -75,11 +75,11 @@ func (s scheduleRepoStub) GetByRoomID(ctx context.Context, roomID uuid.UUID) (do
 }
 
 type bookingRepoStub struct {
-	createFn                       func(ctx context.Context, booking domain.Booking) error
-	getByIDFn                      func(ctx context.Context, bookingID uuid.UUID) (domain.Booking, error)
-	cancelFn                       func(ctx context.Context, bookingID uuid.UUID) (domain.Booking, error)
-	listByUserFutureFn             func(ctx context.Context, userID uuid.UUID, now time.Time) ([]domain.Booking, error)
-	listAllFn                      func(ctx context.Context, page, pageSize int) ([]domain.Booking, int, error)
+	createFn                        func(ctx context.Context, booking domain.Booking) error
+	getByIDFn                       func(ctx context.Context, bookingID uuid.UUID) (domain.Booking, error)
+	cancelFn                        func(ctx context.Context, bookingID uuid.UUID) (domain.Booking, error)
+	listByUserFutureFn              func(ctx context.Context, userID uuid.UUID, now time.Time) ([]domain.Booking, error)
+	listAllFn                       func(ctx context.Context, page, pageSize int) ([]domain.Booking, int, error)
 	listActiveStartsByRoomBetweenFn func(ctx context.Context, roomID uuid.UUID, from, to time.Time) ([]time.Time, error)
 }
 
