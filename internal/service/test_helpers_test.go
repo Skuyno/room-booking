@@ -128,24 +128,3 @@ func (s bookingRepoStub) ListActiveStartsByRoomBetween(ctx context.Context, room
 func mustUUID(value string) uuid.UUID {
 	return uuid.MustParse(value)
 }
-
-func isoDay(ts time.Time) int16 {
-	switch ts.UTC().Weekday() {
-	case time.Monday:
-		return 1
-	case time.Tuesday:
-		return 2
-	case time.Wednesday:
-		return 3
-	case time.Thursday:
-		return 4
-	case time.Friday:
-		return 5
-	case time.Saturday:
-		return 6
-	case time.Sunday:
-		return 7
-	default:
-		return 0
-	}
-}
