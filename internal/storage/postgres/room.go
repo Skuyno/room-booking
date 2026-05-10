@@ -64,7 +64,7 @@ func (r *RoomRepository) List(ctx context.Context) ([]domain.Room, error) {
 		var description sql.NullString
 		var capacity sql.NullInt32
 
-		if err := rows.Scan(
+		if err = rows.Scan(
 			&room.ID,
 			&room.Name,
 			&description,
@@ -85,7 +85,7 @@ func (r *RoomRepository) List(ctx context.Context) ([]domain.Room, error) {
 		result = append(result, room)
 	}
 
-	if err := rows.Err(); err != nil {
+	if err = rows.Err(); err != nil {
 		return nil, fmt.Errorf("iterate rooms: %w", err)
 	}
 

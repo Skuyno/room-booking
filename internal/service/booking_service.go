@@ -95,7 +95,7 @@ func (s *BookingService) Create(
 		ConferenceLink: conferenceLink,
 	}
 
-	if err := s.bookingRepo.Create(ctx, booking); err != nil {
+	if err = s.bookingRepo.Create(ctx, booking); err != nil {
 		return domain.Booking{}, err
 	}
 

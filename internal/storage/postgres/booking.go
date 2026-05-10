@@ -169,12 +169,12 @@ func (r *BookingRepository) ListActiveStartsByRoomBetween(
 	var result []time.Time
 	for rows.Next() {
 		var startAt time.Time
-		if err := rows.Scan(&startAt); err != nil {
+		if err = rows.Scan(&startAt); err != nil {
 			return nil, fmt.Errorf("scan active booking: %w", err)
 		}
 		result = append(result, startAt.UTC())
 	}
-	if err := rows.Err(); err != nil {
+	if err = rows.Err(); err != nil {
 		return nil, fmt.Errorf("iterate active bookings: %w", err)
 	}
 

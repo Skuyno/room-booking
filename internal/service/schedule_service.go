@@ -46,7 +46,7 @@ func (s *ScheduleService) Create(
 	if err != nil {
 		return domain.Schedule{}, err
 	}
-	if err := validateScheduleWindow(startTime, endTime); err != nil {
+	if err = validateScheduleWindow(startTime, endTime); err != nil {
 		return domain.Schedule{}, err
 	}
 
@@ -66,7 +66,7 @@ func (s *ScheduleService) Create(
 		EndTime:    endTime,
 	}
 
-	if err := s.scheduleRepo.Create(ctx, schedule); err != nil {
+	if err = s.scheduleRepo.Create(ctx, schedule); err != nil {
 		return domain.Schedule{}, err
 	}
 

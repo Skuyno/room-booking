@@ -39,7 +39,7 @@ func RunMigrations(ctx context.Context, pool *pgxpool.Pool) error {
 		_ = tx.Rollback(ctx)
 	}()
 
-	if err := ensureSchemaMigrationsTable(ctx, tx); err != nil {
+	if err = ensureSchemaMigrationsTable(ctx, tx); err != nil {
 		return fmt.Errorf("ensure schema_migrations table: %w", err)
 	}
 
@@ -48,11 +48,11 @@ func RunMigrations(ctx context.Context, pool *pgxpool.Pool) error {
 		return err
 	}
 
-	if err := applyPendingMigrations(ctx, tx, migrations.FS, files, applied); err != nil {
+	if err = applyPendingMigrations(ctx, tx, migrations.FS, files, applied); err != nil {
 		return err
 	}
 
-	if err := tx.Commit(ctx); err != nil {
+	if err = tx.Commit(ctx); err != nil {
 		return fmt.Errorf("commit migrations tx: %w", err)
 	}
 

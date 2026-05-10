@@ -112,7 +112,7 @@ func (s *AuthService) Login(ctx context.Context, email, password string) (string
 		return "", domain.ErrInvalidCredentials
 	}
 
-	if err := auth.CheckPassword(user.PasswordHash, password); err != nil {
+	if err = auth.CheckPassword(user.PasswordHash, password); err != nil {
 		return "", domain.ErrInvalidCredentials
 	}
 
